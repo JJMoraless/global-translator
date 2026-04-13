@@ -1,6 +1,7 @@
 #!/bin/bash
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/utils/draw_box.sh"
 source "$SCRIPT_DIR/utils/loading.sh"
 
 if ! command -v wl-paste &>/dev/null; then
@@ -40,17 +41,11 @@ clear
 
 
 if [ "$world_count" -eq 1 ]; then
-    echo -e "\e[1;35m--- 📖 Dictionary: \"$text_selected\" ---\e[0m"
-    echo
-    echo "$dictionary"
-    echo
+    draw_box "📖 Dictionary: $text_selected" "$dictionary" "\e[1;35m"
 else
-    echo -e "\e[1;32m--- 🔗 Translate ($ui_lang) ---\e[0m"
-    echo
-    echo "$traduction"
-    echo
+    draw_box "📑 Translate ($ui_lang)" "$traduction" "\e[1;32m"
 fi
-echo -e "\e[1;33m-----------------------------\e[0m"
+
 echo "press any key to close..."
 
 # wait input to close the window

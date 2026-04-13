@@ -11,8 +11,6 @@ if [ "$XDG_CURRENT_DESKTOP" = "KDE" ] || [ "$XDG_CURRENT_DESKTOP" = "kde" ] || [
     # y=$(echo "$position" | grep ^Y= | cut -d= -f2)
     
     ghostty \
-        --window-padding-x=15 \
-        --window-padding-y=15 \
         --window-decoration=false \
         -e bash $path_panel_translation
 
